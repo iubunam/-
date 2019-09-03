@@ -9,7 +9,7 @@ import os
 import glob
 import pandas as pd
 from scipy import stats
-import numpy as 
+import numpy as np
 #%%
 files = glob.glob('DataFiles/*.csv')
 
@@ -26,7 +26,7 @@ dataset_total.drop(columns = 'New', inplace = True)
 dataset_total.loc[dataset_total['S_Direction'] == 'Sangheng', 'TTC'] = - dataset_total.loc[dataset_total['S_Direction'] == 'Sangheng', 'TTC']
 
 # TTC 마이너스값 처리
-dataset_total.loc[dataset_total['TTC'] < 0, 'TTC'] = 999
+dataset_total.loc[dataset_total['TTC'] < 0, 'TTC'] = np.nan
 
 #%% 이상치 제거
 # 이상치 찾기
@@ -45,9 +45,5 @@ for i in dataset_total.columns[4:8]:
 #%%
 # 데이터 Export
 dataset_total.to_csv('dataset_total.csv', index = False)
- 
-
-
-
 
 
