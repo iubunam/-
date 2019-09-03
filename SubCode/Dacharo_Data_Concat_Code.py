@@ -10,7 +10,7 @@ import glob
 import pandas as pd
 
 #%%
-files = glob.glob('Data_Files/*.csv')
+files = glob.glob('DataFiles/*.csv')
 
 dataset_total = pd.concat([pd.read_csv(fp).assign(New=os.path.basename(fp).split('.')[0]) for fp in files])
 
@@ -30,7 +30,7 @@ dataset_total.drop(columns = 'New', inplace = True)
 #dataset_total.loc[dataset_total['S_Way'] == '(1)', 'S_Way'] = 'Right
 
 
-dataset_total.loc[dataset_total['S_Direction'] == 'North', 'TTC'] = - dataset_total.loc[dataset_total['S_Direction'] == 'North', 'TTC']
+dataset_total.loc[dataset_total['S_Direction'] == 'Sangheng', 'TTC'] = - dataset_total.loc[dataset_total['S_Direction'] == 'Sangheng', 'TTC']
 
 dataset_total.loc[dataset_total['TTC'] < 0, 'TTC'] = 999
 

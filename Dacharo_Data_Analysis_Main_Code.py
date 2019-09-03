@@ -18,14 +18,14 @@
 
 import glob
 import time
-from lib import 'Dacharo_Data_Analysis_Module_V2.0' as DA
+from lib import Dacharo_Data_Analysis_Module as DA
 
 
 #%% Initial Variable Setting
 
 
 # Txt 파일 불러오기
-txtfiles = glob.glob('Data_Files/*.txt')
+txtfiles = glob.glob('DataFiles/*.txt')
 
 # 차로폭 설정
 side_lane = 1.8 + 3.6 + 3.6
@@ -36,8 +36,8 @@ XYrange = dict(Xmin = -14515, Xcen = -14443, Xmax = -14341, Xint = 5,
 # 전체 시간 측정 
 total_time = time.time()
 
-DEBUGGING_MODE = True
-#DEBUGGING_MODE = False 
+#DEBUGGING_MODE = True
+DEBUGGING_MODE = False 
 
 
 #%% Main Code
